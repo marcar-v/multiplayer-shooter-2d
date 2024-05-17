@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4521978353971199661}
   - component: {fileID: 2153128536438610900}
   - component: {fileID: 7597107937284440732}
+  - component: {fileID: 8868887764881809048}
   m_Layer: 0
   m_Name: PlayerSkin1
   m_TagString: Untagged
@@ -149,7 +150,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -178,9 +179,10 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 2
+  observableSearch: 0
   ObservedComponents:
   - {fileID: 7597107937284440732}
+  - {fileID: 8868887764881809048}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -196,13 +198,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbdb6e1fb217fd4dab729e40db4f12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _photonView: {fileID: 0}
+  _photonView: {fileID: 2153128536438610900}
+  _playerSprite: {fileID: 3543115365288599225}
   _speed: 10
   _smoothTime: 10
-  _jumpForce: 5
+  _jumpForce: 7
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+--- !u!114 &8868887764881809048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673379682157942174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &8017415832105058758
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +282,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!114 &4562315381501870896
 MonoBehaviour:
