@@ -23,6 +23,7 @@ public class UIController : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Room joined success");
+        PhotonNetwork.LoadLevel(1);
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
