@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         _remainingJumps = _totalJumps;
     }
 
+    void Start()
+    {
+        PhotonNetwork.SendRate = 20;
+        PhotonNetwork.SerializationRate = 15;
+    }
+
     private void Update()
     {
         if (photonView.IsMine)
