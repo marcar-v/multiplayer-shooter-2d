@@ -25,7 +25,6 @@ public class PlayerName : MonoBehaviour
 
     public void OnClick_SetName()
     {
-        _usernameEstablished.SetActive(true);
         PhotonNetwork.NickName = _playerName.text;
     }
 }
