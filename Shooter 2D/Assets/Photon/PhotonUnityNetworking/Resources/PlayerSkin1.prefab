@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _photonView: {fileID: 2153128536438610900}
   _playerSprite: {fileID: 3543115365288599225}
+  _playerName: {fileID: 8038797242948249488}
   _speed: 10
   _smoothTime: 10
   _jumpForce: 7

@@ -2,12 +2,14 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.IsolatedStorage;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviourPun, IPunObservable
 {
     [SerializeField] PhotonView _photonView;
     [SerializeField] SpriteRenderer _playerSprite;
+    [SerializeField] TextMeshProUGUI _playerName;
 
     [Header("Movement")]
     [SerializeField] float _speed = 10;
@@ -35,8 +37,14 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
 
     void Start()
     {
-        PhotonNetwork.SendRate = 20;
-        PhotonNetwork.SerializationRate = 15;
+        if(photonView.IsMine)
+        {
+            _playerName.text = PhotonNetwork.NickName;
+        }
+        else
+        {
+            _playerName.text = _photonView.Owner.NickName;
+        }
     }
 
     private void Update()
