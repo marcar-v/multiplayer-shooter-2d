@@ -41,6 +41,12 @@ MonoBehaviour:
   - RespawnSpaceship
   - OnDirectionChangeLeft
   - OnDirectionChangeRight
+  - OnTriggerEnter2D
+  - OnEnable
+  - ChangeDirection
+  - OnBecameInvisible
+  - InitializeObject
+  - DestroyRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

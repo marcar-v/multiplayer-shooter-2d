@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
 {
     [SerializeField] PhotonView _photonView;
     [SerializeField] SpriteRenderer _playerSprite;
+    public SpriteRenderer playerSprite { get { return _playerSprite; } set { _playerSprite = value; } }
     [SerializeField] TextMeshProUGUI _playerName;
 
     [Header("Movement")]
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         }
 
     }
+
     [PunRPC]
     void OnDirectionChangeLeft()
     {
