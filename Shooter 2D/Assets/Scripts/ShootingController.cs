@@ -5,32 +5,45 @@ using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
-    [SerializeField] GameObject _playerBullet;
+    [SerializeField] GameObject _bulletPrefab;
     [SerializeField] AudioSource _shootSound;
     [SerializeField] Transform _spawnBulletRight;
     [SerializeField] Transform _spawnBulletLeft;
     [SerializeField] PlayerController _playerController;
+    PhotonView _photonView;
 
+    private void Awake()
+    {
+        _photonView = GetComponent<PhotonView>();
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.timeScale > 0)
+        if (_photonView.IsMine)
         {
-            Shoot();
-            _shootSound.Play();
+            if (Input.GetKeyDown(KeyCode.Mouse0) && Time.timeScale > 0)
+            {
+                Shoot();
+                _shootSound.Play();
+            }
+        }
+        else
+        {
+            return;
         }
     }
 
     public void Shoot()
-    {        
-        if(_playerController.playerSprite == true)
+    {
+        GameObject _playerBullet;
+        if (_playerController.playerSprite.flipX == true)
         {
-            GameObject _bulletPrefab = PhotonNetwork.Instantiate(_playerBullet.name, _spawnBulletLeft.position, Quaternion.identity);
+            _playerBullet = PhotonNetwork.Instantiate(_bulletPrefab.name, _spawnBulletLeft.position, Quaternion.identity);
 
         }
         else
         {
-            GameObject _bulletPrefab = PhotonNetwork.Instantiate(_playerBullet.name, _spawnBulletRight.position, Quaternion.identity);
+            _playerBullet = PhotonNetwork.Instantiate(_bulletPrefab.name, _spawnBulletRight.position, Quaternion.identity);
 
         }
 

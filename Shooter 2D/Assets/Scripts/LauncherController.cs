@@ -17,7 +17,7 @@ public class LauncherController : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         _connectedCanvas.SetActive(true);
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
         PhotonNetwork.JoinLobby(TypedLobby.Default);
     }
 

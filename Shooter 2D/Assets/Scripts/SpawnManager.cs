@@ -13,6 +13,11 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnPlayer()
     {
-        PhotonNetwork.Instantiate(_playerPrefab.name, _playerPrefab.transform.position, _playerPrefab.transform.rotation);
+        if(_playerPrefab != null)
+        {
+            int _randomX = Random.Range(-6, 6);
+            PhotonNetwork.Instantiate(_playerPrefab.name, new Vector2(_randomX, 0), _playerPrefab.transform.rotation);
+
+        }
     }
 }
