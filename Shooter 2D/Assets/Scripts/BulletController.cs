@@ -12,7 +12,7 @@ public class BulletController : MonoBehaviourPun
     bool _shootLeft = false;
     public bool shootLeft {  get { return _shootLeft; } set {  _shootLeft = value; } }
 
-    [SerializeField] GameObject _playerHealth;
+    [SerializeField] GameObject _playerPrefab;
 
 
 
@@ -52,9 +52,9 @@ public class BulletController : MonoBehaviourPun
 
     void CallTakeDamage(float damage)
     {
-        if (_playerHealth != null)
+        if (_playerPrefab != null)
         {
-            PhotonView _currentPlayerPhotonView = _playerHealth.GetComponent<PhotonView>();
+            PhotonView _currentPlayerPhotonView = _playerPrefab.GetComponent<PhotonView>();
             if (_currentPlayerPhotonView != null)
             {
                 _currentPlayerPhotonView.RPC("TakeDamage", RpcTarget.AllBuffered, 1);
@@ -69,9 +69,8 @@ public class BulletController : MonoBehaviourPun
             Debug.Log("Jugador detectado");
             DestroyRPC();
             CallTakeDamage(1);
-            //GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, 10f);
-
         }
+
     }
 
 }

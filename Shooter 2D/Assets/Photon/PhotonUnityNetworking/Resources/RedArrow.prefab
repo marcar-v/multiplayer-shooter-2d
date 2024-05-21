@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpeed: 10
-  _playerHealth: {fileID: 673379682157942174, guid: 97ec40498b25cc047955d006bdebc659, type: 3}
+  _playerPrefab: {fileID: 673379682157942174, guid: 97ec40498b25cc047955d006bdebc659, type: 3}
 --- !u!61 &2775961302530681230
 BoxCollider2D:
   m_ObjectHideFlags: 0
