@@ -11,6 +11,7 @@ public class ShootingController : MonoBehaviour
     [SerializeField] Transform _spawnBulletLeft;
     [SerializeField] PlayerController _playerController;
     PhotonView _photonView;
+    GameObject _playerBullet;
 
     private void Awake()
     {
@@ -35,7 +36,6 @@ public class ShootingController : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject _playerBullet;
         if (_playerController.playerSprite.flipX == true)
         {
             _playerBullet = PhotonNetwork.Instantiate(_bulletPrefab.name, _spawnBulletLeft.position, Quaternion.identity);

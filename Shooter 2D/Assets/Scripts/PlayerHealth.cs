@@ -28,10 +28,12 @@ public class PlayerHealth : MonoBehaviour
     [PunRPC]
     public void TakeDamage(float damage)
     {
-        if(GetComponent<PhotonView>().IsMine)
+        damage = 1;
+        if(!GetComponent <PhotonView>().IsMine)
         {
             return;
         }
+
         _currentHealth -= damage;
         if(_currentHealth < 0)
         {
@@ -39,13 +41,5 @@ public class PlayerHealth : MonoBehaviour
         }
 
         UpdateHealthBar();
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.AllBuffered, _currentHealth--);
-            _bulletPrefab.GetComponent<PhotonView>().RPC("DestroyRPC", RpcTarget.AllBuffered);
-        }
     }
 }

@@ -9,7 +9,7 @@ public class PlayerName : MonoBehaviour
 {
     [SerializeField] TMP_InputField _playerName;
     [SerializeField] Button _setNameButton;
-    [SerializeField] GameObject _usernameEstablished;
+    [SerializeField] GameObject _doneText;
 
     public void OnTFChange()
     {
@@ -26,5 +26,6 @@ public class PlayerName : MonoBehaviour
     public void OnClick_SetName()
     {
         PhotonNetwork.NickName = _playerName.text;
+        _doneText.SetActive(true);
     }
 }
